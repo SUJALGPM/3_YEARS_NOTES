@@ -1,0 +1,105 @@
+1.  Git Details Notes :-
+
+    > Git - Version control system is tools that helps to track changes in code.
+    > Git is a Version Control system which is popular, free & Open source and fast & scalable.
+    > Git is tool and github is software where we upload code and share link for project showcase.
+
+2.  Phase 1 - Basic of git commands :-
+
+    a) Check git is installed and which verison we have ?
+    cmd - git --version
+
+    b) Configure your username & email
+    cmd - git config --global user.name "Your Name"
+          git config --global user.email "yourmail@gmail.com"
+
+    c) Set All current settings :-
+    cmd - git config --list
+
+    d) Creating a repository :-
+    cmd - mkdir myproject
+          cd myproject
+          git init // create a .git folder.
+          echo "Hola Git" > Hola.txt // create a file.
+
+    e) Check git status :-
+    cmd - git status
+
+    f) Add new file to .git folder.
+    cmd - git add --all
+    git add Hola.txt
+
+    g) Commit added file with label.
+    cmd - git commit -m "First git repository"
+
+    h) Check git log/history
+    cmd - git log
+          git log --oneline
+
+3.  Phase 2 - Everyday Git :-
+
+    a) Unstage a file (if added by mistake):
+    cmd - git reset Hola.txt
+
+    b) Discard changes (reset file back to last commit):
+    cmd - git checkout -- Hola.txt
+
+    c) Undo last commit but keep changes in working dir:
+    cmd - git reset --soft HEAD~1
+
+    e) Undo last commit completely (delete changes too):
+    cmd - git reset --hard HEAD~1
+
+4.  Phase 3 - Branching & Merging
+
+    Note - what is branch ?
+        > A branch is like a separate line of development.
+        > Default branch is usually main (or master).
+        > You can create new branches to add features without breaking main code.
+
+    a) Check Current branch :
+    cmd - git branch
+
+    b) Create a new branch :
+    cmd - git branch feature-1
+
+    c) Switch to that branch :
+    cmd - git checkout feature-1
+
+    e) Check branches and commits:
+    cmd - git log --oneline --graph --all
+
+    d) Merging branch :
+    cmd - git checkout master
+    git merge feature-1
+
+    Note - What happens to the data ...?
+        > Git does not delete b1’s work.
+        > It combines commits from b2 into b1.
+        > If both branches changed different parts of files, Git automatically merges (keeps both changes).
+        > If both changed the same line, Git will raise a merge conflict → you must decide manually which version to keep.
+
+5. Phase 4 - Remotes & GitHub Workflow
+
+    a) Cloning a repository.
+    cmd - git clone https://github.com/username/repo.git
+
+    b) Adding a Remote.
+    Note - If you already created a local repo with git init, you can link it to GitHub
+    cmd - git remote add origin https://github.com/username/repo.git
+
+    c) Check remote 
+    cmd - git remote -v
+
+    d) Pushing Changes
+    Note - Push your local main branch to GitHub, (-u) sets the upstream (so next time you can just run git push).
+    cmd - git push -u origin master
+
+    e) Pulling Changes
+    Note - If someone updated the repo, pull changes
+    cmd - git pull
+
+    f) Fetching Without Merging
+    Note - To only download changes but not merge, You can then inspect changes before merging.
+    cmd - git fetch
+
